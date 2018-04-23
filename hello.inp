@@ -1,0 +1,2 @@
+io:format(" Hello at ~p ~p ~n",
+[erlang:date(),erlang:time()]),q().
