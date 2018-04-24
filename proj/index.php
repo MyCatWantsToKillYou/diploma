@@ -7,7 +7,7 @@
 
 .tabs {
     width: 100%;
-    height: 220px;
+    height: 700px;
 }
 .tabs ul,
 .tabs li {
@@ -84,6 +84,13 @@ margin-left: 8px;
     opacity: .5;
     cursor: no-drop;
 }
+TABLE {
+	
+    width: 70%; /* Ширина второй колонки */
+    text-align: center; /* Выравнивание по правому краю */
+   
+}
+  
 </style></head>
 
 <body>
@@ -104,28 +111,103 @@ margin-left: 8px;
   <ul>
     <li>
      <input type="radio" name="tabs-0" checked="checked" id="tabs-0-0" />
-        <label for="tabs-0-0">Вкладка 1</label>
+        <label for="tabs-0-0">Общее</label>
      <div>
-        <h3>Номер</h3>
-         <p><input type="text" name="number"/>
-         </p>
-         <h3>Название организации</h3>
-         <p><input type="text" name="number"/>
-         </p>
+        <h3>Полное название организации</h3>
+         <p><input type="text" name="orgName" size="100" />
+         <h3>Адрес организации</h3>
+         <input type="text" name="orgAddr" placeholder="Курганская обл., г. Курган, ул. Строительная, д.25, офис 404" size="100" />
+         <h3>Дата проведения обследования</h3>
+         <p><input type="date" name="survDate"></p>
+         <h3>Номер и дата заключения договора</h3>
+         <p><input type="text" name="contractNum"/> &nbsp;
+         <input type="date" name="contractDate">
+         <h3>ФИО и должность ответственного за электропитание</h3>
+         <p><input type="text" placeholder="Иванов Иван Иванович" name="respName"/> &nbsp;
+         <input type="text" placeholder="Заведующий" name="contractDate">
+         <h3>Количество телефонных линий &nbsp;&nbsp;
+         <input type="text"  name="phoneQuantity" size="3" />
+         <h3>Пожарная безопасность(организация)</h3>
+         <p><input type="text" name="fireSec" placeholder= "ООО 'Рога и копыта'"  size="50" />
+         <h3>Тревожная кнопка(организация)</h3>
+         <p><input type="text" name="alarm" placeholder= "ООО 'Рога и копыта'"  size="50" />
+         <h3>Обслуживание комьютеров(организация)</h3>
+         <p><input type="text" name="compService" placeholder= "ООО 'Рога и копыта'"  size="50" />
+         <h3>Официальный сайт и организация ответственная за наполнение</h3>
+         <p><input type="text" name="site" placeholder= "https://javascript.ru/forum/jquery/"  size="50" /> &nbsp; 
+         	<input type="text" placeholder="ООО 'Рога и копыта'"  name="orgSite" size="50">
     </div>
    </li>
    <li>
      <input type="radio" name="tabs-0" id="tabs-0-1" />
-       <label for="tabs-0-1">Вкладка 2</label>
+       <label for="tabs-0-1">Кабинеты</label>
      <div>
-       <h3>Зловещий повелитель</h3>
-        <p>В стародавние времена в одном мусорном контейнере жил-был эльф-полукровка. Звали его Лавруша, но он
-           просил чтобы к нему обращались не иначе как Лаврентий Павлович. Из pодных и близких y него была одна
-            нянечка, Арина Родионовна.И в один прекрасный день с ним встречается побитый сосед. И говорит: -
-            Как, ты еще жив?! Герой в упор его не замечает. Тогда странный собеседник говорит: - Враг у ворот! И
-            герой вынужден покинуть родные места. Он бежит, и деревья своими ветвями хлещут его в лицо. А
-            странный визитер падает замертво.
-         </p>
+      <table border="1" width="150px" align="center"  >
+ 
+ <tr>
+    	<td colspan="11"><input type="text" name="alarm" placeholder= "Название кабинета"  size="50" />
+    </td>
+</tr>
+     <tr>
+     	<td colspan="11">
+     	<input type="text" name="cabinFIO" placeholder= "ФИО ответственного"  size="50" /> 
+     	<input type="text" name="post" placeholder= "Должность"  size="25" />
+     </td>
+ </tr>
+ <tr>
+    <th width="33%" colspan="3">Двери</th>
+    <th width="33%" colspan="3">Окна</th>
+    <th width="33%" colspan="4">Сейф</th>
+</tr>
+<tr>
+    <td width="11%"><input type="text"  name="doorQuan" placeholder="Количество" size="8" /></td>
+    <td width="11%"><input type="text"  name="doorMat" placeholder="Материал" size="10" /></td>
+    <td width="11%"><input type="text"  name="Lock" placeholder="Замок" size="10" /></td>
+    <td width="11%"><input type="text"  name="winQuan" placeholder="Количество" size="10" /></td>
+    <td width="11%"><input type="text"  name="winMat" placeholder="Материал" size="10" /></td>
+    <td width="11%"><input type="text"  name="lattice" placeholder="Решётка" size="10" /></td>
+    <td width="11%" colspan="4"><input type="text"  name="safeQuan" placeholder="Количество" size="8" /></td>
+</tr>
+<tr>
+    <th width="25%" colspan="3">Электропитание</th>
+    <th width="25%" colspan="3">Сигнализация</th>
+    <th width="25%" colspan="3">Сеть</th>
+    <th width="25%" colspan="3">Телефон</th>
+</tr>
+<tr>
+    <th width="25%" colspan="3"><input type="checkbox"  name="electicity"/></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="signalization"/></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="net"/></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="phone"/></th>
+</tr>
+      </table>
+ <div>
+    <input type="button" value="Create Table" onclick="createTable()" />
+</div>
+<script language="javascript" type="text/javascript">
+<!--
+function createTable() {
+    // Create table.
+    var table = document.createElement('table');
+    // Insert New Row for table at index '0'.
+    var row1 = table.insertRow(0);
+    // Insert New Column for Row1 at index '0'.
+    var row1col1 = row1.insertCell(0);
+    row1col1.innerHTML = 'Col1';
+    // Insert New Column for Row1 at index '1'.
+    var row1col2 = row1.insertCell(1);
+    row1col2.innerHTML = 'Col2';
+    // Insert New Column for Row1 at index '2'.
+    var row1col3 = row1.insertCell(2);
+    row1col3.innerHTML = 'Col3';
+    // Append Table into div.
+    var div = document.getElementById('divTable');
+    div.appendChild(table);
+}
+
+//-->
+</script> 
+
     </div>
     </li>
     <li>
