@@ -55,6 +55,11 @@
         <option value="products">Продукты</option>
         <option value="accounts">Счета</option>
         <option value="transport">Транспорт</option>
+        <option value="order">Заказы</option>
+        <option value="organization">Организации</option>
+        <option value="products">Продукты</option>
+        <option value="accounts">Счета</option>
+        <option value="transport">Транспорт</option>
 
 
 
