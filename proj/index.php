@@ -160,7 +160,7 @@ TABLE {
     <th width="33%" colspan="4">Сейф</th>
 </tr>
 <tr>
-    <td width="11%"><input type="text"  name="doorQuan" placeholder="Количество" size="8" /></td>
+    <td width="11%"><input type="text"  name="doorQuan" placeholder="Количество" size="10" /></td>
     <td width="11%"><input type="text"  name="doorMat" placeholder="Материал" size="10" /></td>
     <td width="11%"><input type="text"  name="Lock" placeholder="Замок" size="10" /></td>
     <td width="11%"><input type="text"  name="winQuan" placeholder="Количество" size="10" /></td>
@@ -184,54 +184,94 @@ TABLE {
  <div>
     <input type="button" value="Create Table" onclick="createTable()" />
 </div>
-<script language="javascript" type="text/javascript">
-<!--
-function createTable() {
-    // Create table.
-    var table = document.createElement('table');
-    // Insert New Row for table at index '0'.
-    var row1 = table.insertRow(0);
-    // Insert New Column for Row1 at index '0'.
-    var row1col1 = row1.insertCell(0);
-    row1col1.innerHTML = 'Col1';
-    // Insert New Column for Row1 at index '1'.
-    var row1col2 = row1.insertCell(1);
-    row1col2.innerHTML = 'Col2';
-    // Insert New Column for Row1 at index '2'.
-    var row1col3 = row1.insertCell(2);
-    row1col3.innerHTML = 'Col3';
-    // Append Table into div.
-    var div = document.getElementById('divTable');
-    div.appendChild(table);
-}
-
-//-->
-</script> 
-
     </div>
     </li>
     <li>
       <input type="radio" name="tabs-0" id="tabs-0-2" />
-        <label for="tabs-0-2">Вкладка 3</label>
+        <label for="tabs-0-2">ИСПДн</label>
       <div>
-        <h3>Одинокий цветок</h3>
-        <p>Когда-то в одном маленьком селе жил-был хулиганистый, задиристый, но очень добрый в душе паренек.
-           Звали его как отца, но похож он был на соседа. Из pодных и близких y него была сестрица Аленушка,
-           подлюка редкая. И вот однажды к немy подходит стpанно выглядящий человек. И говорит: - Следуй за
-           мной! Герой прикидывает, куда бы перепрятать накопленное золотишко. Тогда странный собеседник
-           говорит: - Я заболтаю тебя до смерти!
-        </p>
+        <h3>Количество ИСПДн</h3>
+        <p><input type="text"  name="ispdnQuan" size="3" />
+     
+        <table border="1" width="150px" align="center">
+    <tr>
+        <td><input type="text"  name="ispdnName" placeholder="Название ИСПДн" size="30" /></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="ispdnNumber" placeholder="Порядковый номер" size="30" /></td>
+    </tr>
+    <tr>
+        <td><textarea rows="15" cols="137" name="text" placeholder="Перечень ПДн в ИСПДн(через точку с запятой)"></textarea></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="ispdnArmQuan" placeholder="Количество АРМ" size="20"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="ispdnArmNumber" placeholder="Номера АРМ" size="20" /></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="level" placeholder="Уровень защищённости" size="20"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="type" placeholder="Тип угрозы" size="20" /></td>
+    </tr>
+</table>
       </div>
    </li>
    <li>
-     <input type="radio" name="tabs-0" id="tabs-0-3" disabled="disabled" />
-        <label for="tabs-0-3">Вкладка 4</label>
+     <input type="radio" name="tabs-0" id="tabs-0-3"/>
+        <label for="tabs-0-3">АРМ</label>
      <div>
-       <h3>Разрушая одиночку</h3>
-       <p>Главный злодей растерян. Он-то думал, что это он Хороший, а оказалось совсем наоборот. Не в силах
-          перенести это потрясение злодей делает себе харакири двуручным мечом.
-          Все делают вид, что счастливы. А главный герой понимает, что исполнил свое предназначение, и теперь он
-          может вернуться домой, чтобы в сытости и довольстве прозябать до самой старости.</p>
+       <h3>Количество АРМ(всего)</h3>
+       <p><input type="text"  name="armQuantity" size="3" /></p>
+       <table border="1" width="150px" align="center">
+    <tr>
+        <td><input type="text"  name="armNumber" placeholder="№ АРМ" size="20"/></td>
+    </tr>
+    <tr>
+    	<th>
+    		Системное ПО
+    	</th>
+    </tr>
+    <tr>
+        <td><input type="text"  name="sysPO1" placeholder="Системное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="sysPO2" placeholder="Системное ПО" size="50"/></td>
+    </tr>
+    <tr>
+    	<th>
+    		Прикладное ПО
+    	</th>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO1" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO2" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO3" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO4" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO5" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO6" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO7" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO8" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO9" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+</table>
      </div>
    </li>
   </ul>
