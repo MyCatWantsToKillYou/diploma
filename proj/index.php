@@ -142,11 +142,10 @@ TABLE {
      <input type="radio" name="tabs-0" id="tabs-0-1" />
        <label for="tabs-0-1">Кабинеты</label>
      <div>
-      <table border="1" width="150px" align="center"  >
+      <table border="1" width="150px" align="center" id="room" />
  
  <tr>
-    	<td colspan="11"><input type="text" name="alarm" placeholder= "Название кабинета"  size="50" />
-    </td>
+    	<td colspan="11"><input type="text" name="roomName" placeholder= "Название кабинета"  size="50" /></td>
 </tr>
      <tr>
      	<td colspan="11">
@@ -181,9 +180,11 @@ TABLE {
     <th width="25%" colspan="3"><input type="checkbox"  name="phone"/></th>
 </tr>
       </table>
+
  <div>
-    <input type="button" value="Create Table" onclick="createTable()" />
+    <input type="button" onclick="createTable()" id="creat" value="Добавить кабинет" />
 </div>
+<body></body>
     </div>
     </li>
     <li>
@@ -225,54 +226,76 @@ TABLE {
        <h3>Количество АРМ(всего)</h3>
        <p><input type="text"  name="armQuantity" size="3" /></p>
        <table border="1" width="150px" align="center">
+       	<tbody id="arm">
     <tr>
         <td><input type="text"  name="armNumber" placeholder="№ АРМ" size="20"/></td>
     </tr>
     <tr>
     	<th>
-    		Системное ПО
+    		Системное ПО &nbsp;<input type="button" onclick='createRowSys()' value="+" />
     	</th>
+
     </tr>
     <tr>
-        <td><input type="text"  name="sysPO1" placeholder="Системное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="sysPO2" placeholder="Системное ПО" size="50"/></td>
-    </tr>
+        <td><input type="text"  name="sysPO1" placeholder="Системное ПО" size="50"/></td> 
+
+    </tr> 
+    
     <tr>
     	<th>
-    		Прикладное ПО
+    		Прикладное ПО &nbsp;<input type="button" onclick='createRowApp()' value="+" />
     	</th>
     </tr>
     <tr>
         <td><input type="text"  name="appliedPO1" placeholder="Прикладное ПО" size="50"/></td>
     </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO2" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO3" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO4" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO5" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO6" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO7" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO8" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
-    <tr>
-        <td><input type="text"  name="appliedPO9" placeholder="Прикладное ПО" size="50"/></td>
-    </tr>
+</tbody>
 </table>
+<br></br>
      </div>
+     <script type="text/javascript">
+     	  var i = 2;
+	var j = 3;
+    function createRowSys() {
+      var table = document.getElementById("arm"); // find table to append to
+      var row = table.insertRow(j);
+      var col = document.createElement('td'); // create column node
+      row.appendChild(col); // append first column to row
+      col.innerHTML = "<input type=\"text\" " +"name=\"sysPO"+i+"\"" + "placeholder=\"Системное ПО\" size=\"50\"/>"; // put data in first column
+      i++;
+      j++;
+    }
+    var k = 2;
+    var m = 5;
+    function createRowApp() {
+      var table = document.getElementById("arm"); // find table to append to
+      var row = table.insertRow(m);
+      var col = document.createElement('td'); // create column node
+      row.appendChild(col); // append first column to row
+      col.innerHTML = "<input type=\"text\" " +"name=\"appliedPO"+k+"\"" + "placeholder=\"Прикладное ПО\" size=\"50\"/>"; // put data in first column
+      k++;
+      m++;
+    }
+    function createTable() {
+    var body = document.getElementsByTagName('div')[3];
+    var tbl = document.createElement('table');
+    tbl.style.width = '70%';
+    tbl.setAttribute('border', '1');
+    tbl.setAttribute('align', 'center');
+    var row = document.createElement('tr');
+    var col = document.createElement('td');
+    row.appendChild(col); // append first column to row
+      col.innerHTML = "<input type=\"text\" " +"name=\"roomName"+1+"\"" + "placeholder=\"Название кабинета\" size=\"50\"/>";
+    var row1 = document.createElement('tr');
+    var col1 = document.createElement('td');
+    row1.appendChild(col1); // append first column to row
+    col1.innerHTML = "<input type=\"text\" name=\"cabinFIO\" placeholder= \"ФИО ответственного\"  size=\"50\" /> <input type=\"text\" name=\"post\" placeholder= \"Должность\"  size=\"25\" />";
+
+	tbl.appendChild(row); 
+	tbl.appendChild(row1); 
+    body.appendChild(tbl)
+}
+     </script>
    </li>
   </ul>
 </div>
