@@ -88,7 +88,7 @@ TABLE {
 	
     width: 70%; /* Ширина второй колонки */
     text-align: center; /* Выравнивание по правому краю */
-   
+    margin: 20px 230px;s
 }
   
 </style></head>
@@ -139,9 +139,13 @@ TABLE {
     </div>
    </li>
    <li>
-     <input type="radio" name="tabs-0" id="tabs-0-1" />
-       <label for="tabs-0-1">Кабинеты</label>
-     <div>
+     <input type="radio"  name="tabs-0" id="tabs-0-1"  />
+       <label for="tabs-0-1">Кабинеты &nbsp;
+       	<input type="button" onclick="cloneTable('container','room')" id="create"  value="+"/>
+       </label>
+
+     <div  id="container">
+     	
       <table border="1" width="150px" align="center" id="room" />
  
  <tr>
@@ -181,20 +185,20 @@ TABLE {
 </tr>
       </table>
 
- <div>
-    <input type="button" onclick="createTable()" id="creat" value="Добавить кабинет" />
-</div>
-<body></body>
-    </div>
+    
+     </div>
+
     </li>
     <li>
       <input type="radio" name="tabs-0" id="tabs-0-2" />
-        <label for="tabs-0-2">ИСПДн</label>
-      <div>
+        <label for="tabs-0-2">ИСПДн 
+        	<input type="button" onclick="cloneTable('container1','ispdn')" id="create1"  value="+"/>
+        </label>
+      <div id="container1">
         <h3>Количество ИСПДн</h3>
         <p><input type="text"  name="ispdnQuan" size="3" />
      
-        <table border="1" width="150px" align="center">
+        <table border="1" width="150px" align="center" id="ispdn">
     <tr>
         <td><input type="text"  name="ispdnName" placeholder="Название ИСПДн" size="30" /></td>
     </tr>
@@ -251,7 +255,6 @@ TABLE {
     </tr>
 </tbody>
 </table>
-<br></br>
      </div>
      <script type="text/javascript">
      	  var i = 2;
@@ -276,25 +279,16 @@ TABLE {
       k++;
       m++;
     }
-    function createTable() {
-    var body = document.getElementsByTagName('div')[3];
-    var tbl = document.createElement('table');
-    tbl.style.width = '70%';
-    tbl.setAttribute('border', '1');
-    tbl.setAttribute('align', 'center');
-    var row = document.createElement('tr');
-    var col = document.createElement('td');
-    row.appendChild(col); // append first column to row
-      col.innerHTML = "<input type=\"text\" " +"name=\"roomName"+1+"\"" + "placeholder=\"Название кабинета\" size=\"50\"/>";
-    var row1 = document.createElement('tr');
-    var col1 = document.createElement('td');
-    row1.appendChild(col1); // append first column to row
-    col1.innerHTML = "<input type=\"text\" name=\"cabinFIO\" placeholder= \"ФИО ответственного\"  size=\"50\" /> <input type=\"text\" name=\"post\" placeholder= \"Должность\"  size=\"25\" />";
+    function cloneTable(container,table) {
+    var div = document.getElementById(container);
+    var table = document.getElementById(table);
+    var clone = table.cloneNode(true);
+    clone.id ="newID";
+    div.appendChild(clone);
 
-	tbl.appendChild(row); 
-	tbl.appendChild(row1); 
-    body.appendChild(tbl)
 }
+
+
      </script>
    </li>
   </ul>
