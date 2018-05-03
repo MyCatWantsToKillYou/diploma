@@ -149,12 +149,12 @@ TABLE {
       <table border="1" width="150px" align="center" id="room" />
  
  <tr>
-    	<td colspan="11"><input type="text" name="roomName" placeholder= "Название кабинета"  size="50" /></td>
+    	<td colspan="11"><input type="text" name="roomName" id="roomName" placeholder= "Название кабинета"  size="50" /></td>
 </tr>
      <tr>
      	<td colspan="11">
-     	<input type="text" name="cabinFIO" placeholder= "ФИО ответственного"  size="50" /> 
-     	<input type="text" name="post" placeholder= "Должность"  size="25" />
+     	<input type="text" name="cabinFIO" id="cabinFIO" placeholder= "ФИО ответственного"  size="50" /> 
+     	<input type="text" name="post" id="post" placeholder= "Должность"  size="25" />
      </td>
  </tr>
  <tr>
@@ -163,13 +163,13 @@ TABLE {
     <th width="33%" colspan="4">Сейф</th>
 </tr>
 <tr>
-    <td width="11%"><input type="text"  name="doorQuan" placeholder="Количество" size="10" /></td>
-    <td width="11%"><input type="text"  name="doorMat" placeholder="Материал" size="10" /></td>
-    <td width="11%"><input type="text"  name="Lock" placeholder="Замок" size="10" /></td>
-    <td width="11%"><input type="text"  name="winQuan" placeholder="Количество" size="10" /></td>
-    <td width="11%"><input type="text"  name="winMat" placeholder="Материал" size="10" /></td>
-    <td width="11%"><input type="text"  name="lattice" placeholder="Решётка" size="10" /></td>
-    <td width="11%" colspan="4"><input type="text"  name="safeQuan" placeholder="Количество" size="8" /></td>
+    <td width="11%"><input type="text"  name="doorQuan" id="doorQuan" placeholder="Количество" size="10" /></td>
+    <td width="11%"><input type="text"  name="doorMat" id="doorMat" placeholder="Материал" size="10" /></td>
+    <td width="11%"><input type="text"  name="Lock" id="Lock" placeholder="Замок" size="10" /></td>
+    <td width="11%"><input type="text"  name="winQuan" id="winQuan" placeholder="Количество" size="10" /></td>
+    <td width="11%"><input type="text"  name="winMat" id="winMat" placeholder="Материал" size="10" /></td>
+    <td width="11%"><input type="text"  name="lattice" id="lattice" placeholder="Решётка" size="10" /></td>
+    <td width="11%" colspan="4"><input type="text"  name="safeQuan" id="safeQuan" placeholder="Количество" size="8" /></td>
 </tr>
 <tr>
     <th width="25%" colspan="3">Электропитание</th>
@@ -178,10 +178,10 @@ TABLE {
     <th width="25%" colspan="3">Телефон</th>
 </tr>
 <tr>
-    <th width="25%" colspan="3"><input type="checkbox"  name="electicity"/></th>
-    <th width="25%" colspan="3"><input type="checkbox"  name="signalization"/></th>
-    <th width="25%" colspan="3"><input type="checkbox"  name="net"/></th>
-    <th width="25%" colspan="3"><input type="checkbox"  name="phone"/></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="electicity" id="electicity" /></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="signalization" id="signalization" /></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="net" id="net" /></th>
+    <th width="25%" colspan="3"><input type="checkbox"  name="phone" id="phone" /></th>
 </tr>
       </table>
 
@@ -196,29 +196,29 @@ TABLE {
         </label>
       <div id="container1">
         <h3>Количество ИСПДн</h3>
-        <p><input type="text"  name="ispdnQuan" size="3" />
+        <p><input type="text"  name="ispdnQuan" id="ispdnQuan" size="3" />
      
         <table border="1" width="150px" align="center" id="ispdn">
     <tr>
-        <td><input type="text"  name="ispdnName" placeholder="Название ИСПДн" size="30" /></td>
+        <td><input type="text"  name="ispdnName" id="ispdnName" placeholder="Название ИСПДн" size="30" /></td>
     </tr>
     <tr>
-        <td><input type="text"  name="ispdnNumber" placeholder="Порядковый номер" size="30" /></td>
+        <td><input type="text"  name="ispdnNumber" id="ispdnNumber" placeholder="Порядковый номер" size="30" /></td>
     </tr>
     <tr>
-        <td><textarea rows="15" cols="137" name="text" placeholder="Перечень ПДн в ИСПДн(через точку с запятой)"></textarea></td>
+        <td><textarea rows="15" cols="137" name="text" id="text" placeholder="Перечень ПДн в ИСПДн(через точку с запятой)"></textarea></td>
     </tr>
     <tr>
-        <td><input type="text"  name="ispdnArmQuan" placeholder="Количество АРМ" size="20"/></td>
+        <td><input type="text"  name="ispdnArmQuan" id="ispdnArmQuan" placeholder="Количество АРМ" size="20"/></td>
     </tr>
     <tr>
-        <td><input type="text"  name="ispdnArmNumber" placeholder="Номера АРМ" size="20" /></td>
+        <td><input type="text"  name="ispdnArmNumber" id="ispdnArmNumber" placeholder="Номера АРМ" size="20" /></td>
     </tr>
     <tr>
-        <td><input type="text"  name="level" placeholder="Уровень защищённости" size="20"/></td>
+        <td><input type="text"  name="level" id="level" placeholder="Уровень защищённости" size="20"/></td>
     </tr>
     <tr>
-        <td><input type="text"  name="type" placeholder="Тип угрозы" size="20" /></td>
+        <td><input type="text"  name="type" id="type" placeholder="Тип угрозы" size="20" /></td>
     </tr>
 </table>
       </div>
@@ -279,13 +279,37 @@ TABLE {
       k++;
       m++;
     }
+    var n=1;
+    var l=1;
     function cloneTable(container,table) {
+    var strTable = table;
     var div = document.getElementById(container);
     var table = document.getElementById(table);
     var clone = table.cloneNode(true);
     clone.id ="newID";
     div.appendChild(clone);
-
+    if(strTable == 'room'){
+    var names = ["roomName","cabinFIO","post",
+    			"doorQuan","doorMat","Lock",
+    			"winQuan","winMat","lattice",
+    			"safeQuan", "electicity", "signalization", 
+    			"net", "phone"];
+    for(i=0;i<names.length;i++){
+    document.getElementById(names[i]).setAttribute("name",names[i]+n);
+   // document.getElementById(names[i]).setAttribute("id", names[i]+n)
+}
+    n++;
+}
+else if(strTable == 'ispdn'){
+	var names = ["ispdnName","ispdnNumber","text",
+    			"ispdnArmQuan","ispdnArmNumber","level",
+    			"type"];
+    for(i=0;i<names.length;i++){
+    document.getElementById(names[i]).setAttribute("name",names[i]+l);
+  //  document.getElementById(names[i]).setAttribute("id", names[i]+n)
+}
+l++;
+}
 }
 
 
