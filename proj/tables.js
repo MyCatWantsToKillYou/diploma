@@ -1,27 +1,29 @@
-	  var i = 2;
+	  var i = 1;
 	var j = 3;
-    function createRowSys() {
+    function createRowSys(id) {
       var table = document.getElementById("arm"); // find table to append to
       var row = table.insertRow(j);
       var col = document.createElement('td'); // create column node
       row.appendChild(col); // append first column to row
-      col.innerHTML = "<input type=\"text\" " +"name=\"sysPO"+i+"\"" + "placeholder=\"Системное ПО\" size=\"50\"/>"; // put data in first column
+      col.innerHTML = "<input type=\"text\" " +"name=\"sysPO"+i+"\""+"id=\"sysPO"+i+"\"" + "placeholder=\"Системное ПО\" size=\"50\"/>"; // put data in first column
       i++;
       j++;
     }
-    var k = 2;
+    var k = 1;
     var m = 5;
-    function createRowApp() {
-      var table = document.getElementById("arm"); // find table to append to
+    function createRowApp(id) {
+      var table = document.getElementById("armTable"); // find table to append to
       var row = table.insertRow(m);
       var col = document.createElement('td'); // create column node
       row.appendChild(col); // append first column to row
-      col.innerHTML = "<input type=\"text\" " +"name=\"appliedPO"+k+"\"" + "placeholder=\"Прикладное ПО\" size=\"50\"/>"; // put data in first column
+      col.innerHTML = "<input type=\"text\" " +"name=\"appliedPO"+k+"\""+"id=\"appliedPO"+k+"\""+ "placeholder=\"Прикладное ПО\" size=\"50\"/>"; // put data in first column
       k++;
       m++;
     }
     var n=1;
     var l=1;
+    var b=2;
+    var q=1;
     function cloneTable(container,table) {
     var strTable = table;
     var div = document.getElementById(container);
@@ -51,5 +53,13 @@ else if(strTable == 'ispdn'){
 }
 l++;
 }
+else if(strTable=="armTable"){
+  var names = ["armNumber","sysPO","appliedPO"];
+  for(i=0;i<names.length;i++){
+    document.getElementById(names[i]).setAttribute("name",names[i]+b+q);
+  }
 }
+}
+
+
 

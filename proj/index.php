@@ -26,7 +26,7 @@
         <label for="tabs-0-0">Общее</label>
      <div>
         <h3>Полное название организации</h3>
-         <p><input type="text" name="orgName" size="100" />
+         <p><input type="text" name="orgName" size="100"  />
          <h3>Адрес организации</h3>
          <input type="text" name="orgAddr" placeholder="Курганская обл., г. Курган, ул. Строительная, д.25, офис 404" size="100" />
          <h3>Дата проведения обследования</h3>
@@ -137,33 +137,34 @@
    </li>
    <li>
      <input type="radio" name="tabs-0" id="tabs-0-3"/>
-        <label for="tabs-0-3">АРМ</label>
-     <div>
+        <label for="tabs-0-3">АРМ &nbsp;
+       	<input type="button" onclick="cloneTable('container2','armTable')" id="create3"  value="+"/></label>
+     <div id="container2">
        <h3>Количество АРМ(всего)</h3>
-       <p><input type="text"  name="armQuantity" size="3" /></p>
-       <table border="1" width="150px" align="center">
+       <p><input type="text"  name="armQuantity" id="armQuantity" size="3" /></p>
+       <table border="1" width="150px" align="center" id="armTable">
        	<tbody id="arm">
     <tr>
-        <td><input type="text"  name="armNumber" placeholder="№ АРМ" size="20"/></td>
+        <td><input type="text"  name="armNumber" id="armNumber" placeholder="№ АРМ" size="20"/></td>
     </tr>
     <tr>
     	<th>
-    		Системное ПО &nbsp;<input type="button" onclick='createRowSys()' value="+" />
+    		Системное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowSys("arm")' value="+" />
     	</th>
 
     </tr>
     <tr>
-        <td><input type="text"  name="sysPO1" placeholder="Системное ПО" size="50"/></td> 
+        <td><input type="text"  name="sysPO" id="sysPO" placeholder="Системное ПО" size="50"/></td> 
 
     </tr> 
     
     <tr>
     	<th>
-    		Прикладное ПО &nbsp;<input type="button" onclick='createRowApp()' value="+" />
+    		Прикладное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowApp("arm")' value="+" />
     	</th>
     </tr>
     <tr>
-        <td><input type="text"  name="appliedPO1" placeholder="Прикладное ПО" size="50"/></td>
+        <td><input type="text"  name="appliedPO" id="appliedPO" placeholder="Прикладное ПО" size="50"/></td>
     </tr>
 </tbody>
 </table>
