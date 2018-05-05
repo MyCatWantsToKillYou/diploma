@@ -26,7 +26,7 @@
         <label for="tabs-0-0">Общее</label>
      <div>
         <h3>Полное название организации</h3>
-         <p><input type="text" name="orgName" size="100"  />
+         <p><input type="text" name="orgName" size="100" />
          <h3>Адрес организации</h3>
          <input type="text" name="orgAddr" placeholder="Курганская обл., г. Курган, ул. Строительная, д.25, офис 404" size="100" />
          <h3>Дата проведения обследования</h3>
@@ -38,7 +38,7 @@
          <p><input type="text" placeholder="Иванов Иван Иванович" name="respName"/> &nbsp;
          <input type="text" placeholder="Заведующий" name="contractDate">
          <h3>Количество телефонных линий &nbsp;&nbsp;
-         <input type="text"  name="phoneQuantity" size="3" />
+         <input type="number" min="0"  name="phoneQuantity" size="3" />
          <h3>Пожарная безопасность(организация)</h3>
          <p><input type="text" name="fireSec" placeholder= "ООО 'Рога и копыта'"  size="50" />
          <h3>Тревожная кнопка(организация)</h3>
@@ -46,7 +46,7 @@
          <h3>Обслуживание комьютеров(организация)</h3>
          <p><input type="text" name="compService" placeholder= "ООО 'Рога и копыта'"  size="50" />
          <h3>Официальный сайт и организация ответственная за наполнение</h3>
-         <p><input type="text" name="site" placeholder= "https://javascript.ru/forum/jquery/"  size="50" /> &nbsp; 
+         <p><input type="url" name="site" placeholder= "https://javascript.ru/forum/jquery/"  size="50" /> &nbsp; 
          	<input type="text" placeholder="ООО 'Рога и копыта'"  name="orgSite" size="50">
     </div>
    </li>
@@ -108,7 +108,7 @@
         </label>
       <div id="container1">
         <h3>Количество ИСПДн</h3>
-        <p><input type="text"  name="ispdnQuan" id="ispdnQuan" size="3" />
+        <p><input type="number" min="1" name="ispdnQuan" id="ispdnQuan" size="3" />
      
         <table border="1" width="150px" align="center" id="ispdn">
     <tr>
@@ -141,7 +141,7 @@
        	<input type="button" onclick="cloneTable('container2','armTable')" id="create3"  value="+"/></label>
      <div id="container2">
        <h3>Количество АРМ(всего)</h3>
-       <p><input type="text"  name="armQuantity" id="armQuantity" size="3" /></p>
+       <p><input type="number" min="1"  name="armQuantity" id="armQuantity" size="3" /></p>
        <table border="1" width="150px" align="center" id="armTable">
        	<tbody id="arm">
     <tr>
@@ -149,7 +149,7 @@
     </tr>
     <tr>
     	<th>
-    		Системное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowSys("arm")' value="+" />
+    		Системное ПО &nbsp;<input type="button" id="btnAddSys" onclick='createRowSys("armTable")' value="+" />
     	</th>
 
     </tr>
@@ -160,7 +160,7 @@
     
     <tr>
     	<th>
-    		Прикладное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowApp("arm")' value="+" />
+    		Прикладное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowApp("armTable")' value="+" />
     	</th>
     </tr>
     <tr>

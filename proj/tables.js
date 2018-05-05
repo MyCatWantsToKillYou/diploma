@@ -1,18 +1,18 @@
 	  var i = 1;
 	var j = 3;
     function createRowSys(id) {
-      var table = document.getElementById("arm"); // find table to append to
+      var table = document.getElementById(id); // find table to append to
       var row = table.insertRow(j);
       var col = document.createElement('td'); // create column node
       row.appendChild(col); // append first column to row
       col.innerHTML = "<input type=\"text\" " +"name=\"sysPO"+i+"\""+"id=\"sysPO"+i+"\"" + "placeholder=\"Системное ПО\" size=\"50\"/>"; // put data in first column
       i++;
-      j++;
+      //j++;
     }
     var k = 1;
     var m = 5;
     function createRowApp(id) {
-      var table = document.getElementById("armTable"); // find table to append to
+      var table = document.getElementById(id); // find table to append to
       var row = table.insertRow(m);
       var col = document.createElement('td'); // create column node
       row.appendChild(col); // append first column to row
@@ -58,6 +58,11 @@ else if(strTable=="armTable"){
   for(i=0;i<names.length;i++){
     document.getElementById(names[i]).setAttribute("name",names[i]+b+q);
   }
+  document.getElementById("btnAddSys").setAttribute("id","btnAddSys"+q);
+  document.getElementById("btnAddSys").setAttribute("onclick","createRowSys(\"newID\")");
+  //document.getElementById("btnAddAppl").setAttribute("onclick","createRowApp(\"newID\")");
+  //document.getElementById("btnAddAppl").setAttribute("onclick","createRowApp(\"newID\")");
+  q++;
 }
 }
 
