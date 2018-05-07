@@ -26,7 +26,7 @@
         <label for="tabs-0-0">Общее</label>
      <div>
         <h3>Полное название организации</h3>
-         <p><input type="text" name="orgName" size="100" />
+         <p><input type="text" name="orgName" id="toggle" size="100" />
          <h3>Адрес организации</h3>
          <input type="text" name="orgAddr" placeholder="Курганская обл., г. Курган, ул. Строительная, д.25, офис 404" size="100" />
          <h3>Дата проведения обследования</h3>
@@ -170,6 +170,19 @@
 </table>
      </div>
      <script src="tables.js" type="text/javascript"></script>
+     <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $('input[type="file"]').change(function(e){
+            for(x=0;x<this.files.length;x++){
+            var fileName = e.target.files[x].name;
+            $( "#toggle" ).css( 'border-color', '#e60000');
+            $( "#toggle" ).css( 'border-width', '1px');
+            //alert('The file "' + fileName +  '" has been selected.');
+        }
+        });
+    });
+</script>
    </li>
   </ul>
 </div>
