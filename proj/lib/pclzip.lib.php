@@ -1842,7 +1842,7 @@
         $v_memory_limit = $v_memory_limit*1073741824;
     if($last == 'm')
         //$v_memory_limit = $v_memory_limit*1024*1024;
-        $v_memory_limit = $v_memory_limit*1048576;
+        $v_memory_limit = (int)$v_memory_limit*1048576;
     if($last == 'k')
         $v_memory_limit = $v_memory_limit*1024;
             

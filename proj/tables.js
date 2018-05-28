@@ -32,7 +32,7 @@
     clone.id ="newID";
     div.appendChild(clone);
     if(strTable == 'room'){
-    var names = ["roomName","cabinFIO","post",
+    var names = ["roomName","level","cabinFIO","postFIO",
     			"doorQuan","doorMat","Lock",
     			"winQuan","winMat","lattice",
     			"safeQuan", "electicity", "signalization", 

@@ -13,12 +13,11 @@
 </p>
 
 <h2>Демонстрация</h2>
-<form action="/proj/FromDB.php" method="post" enctype="multipart/form-data">
+<form action="FromDB.php" method="post" enctype="multipart/form-data">
   Файлы:
   <input name="userfile[]" type="file" id="file" multiple="multiple" /> 
   <br />
   <br />
-
   <div class="tabs">
   <ul>
     <li>
@@ -27,12 +26,15 @@
      <div>
         <h3>Полное название организации</h3>
          <p><input type="text" name="orgName" id="toggle" size="100" />
+        <h3>Первое лицо организации</h3>
+         <p><input type="text" name="FirstPerson" placeholder="Петров Иван Сидорович" id="toggle" size="50" /> &nbsp; 
+        <p><input type="text" name="FirstPersonPost" placeholder="Генеральный директор, заведующий" id="toggle1" size="50" />
          <h3>Адрес организации</h3>
          <input type="text" name="orgAddr" placeholder="Курганская обл., г. Курган, ул. Строительная, д.25, офис 404" size="100" />
          <h3>Дата проведения обследования</h3>
          <p><input type="date" name="survDate"></p>
          <h3>Номер и дата заключения договора</h3>
-         <p><input type="text" name="contractNum"/> &nbsp;
+         <p><input type="text" name="postElectr"/> &nbsp;
          <input type="date" name="contractDate">
          <h3>ФИО и должность ответственного за электропитание</h3>
          <p><input type="text" placeholder="Иванов Иван Иванович" name="respName"/> &nbsp;
@@ -61,12 +63,13 @@
       <table border="1" width="150px" align="center" id="room" />
  
  <tr>
-    	<td colspan="11"><input type="text" name="roomName" id="roomName" placeholder= "Название кабинета"  size="50" /></td>
+    	<td colspan="11"><input type="text" name="roomName" id="roomName" placeholder= "Название кабинета"  size="50" />
+        <input type="number" name="level" id="level" placeholder= "Этаж"  size="50" /></td>
 </tr>
      <tr>
-     	<td colspan="11">
+     	<td colspan="12">
      	<input type="text" name="cabinFIO" id="cabinFIO" placeholder= "ФИО ответственного"  size="50" /> 
-     	<input type="text" name="post" id="post" placeholder= "Должность"  size="25" />
+     	<input type="text" name="postFIO" id="postFIO" placeholder= "Должность"  size="25" />
      </td>
  </tr>
  <tr>
