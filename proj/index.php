@@ -34,11 +34,11 @@
          <h3>Дата проведения обследования</h3>
          <p><input type="date" name="survDate"></p>
          <h3>Номер и дата заключения договора</h3>
-         <p><input type="text" name="postElectr"/> &nbsp;
+         <p><input type="text" name="contractNum"/> &nbsp;
          <input type="date" name="contractDate">
          <h3>ФИО и должность ответственного за электропитание</h3>
          <p><input type="text" placeholder="Иванов Иван Иванович" name="respName"/> &nbsp;
-         <input type="text" placeholder="Заведующий" name="contractDate">
+         <input type="text" placeholder="Заведующий" name="postElectr">
          <h3>Количество телефонных линий &nbsp;&nbsp;
          <input type="number" min="0"  name="phoneQuantity" size="3" />
          <h3>Пожарная безопасность(организация)</h3>
@@ -63,7 +63,7 @@
       <table border="1" width="150px" align="center" id="room" />
  
  <tr>
-    	<td colspan="11"><input type="text" name="roomName" id="roomName" placeholder= "Название кабинета"  size="50" />
+    	<td colspan="11"><input type="text" name="roomName1" id="roomName1" placeholder= "Название кабинета"  size="50" />
         <input type="number" name="level" id="level" placeholder= "Этаж"  size="50" /></td>
 </tr>
      <tr>
@@ -186,6 +186,8 @@
         });
     });
 </script>
+
+
    </li>
   </ul>
 </div>
