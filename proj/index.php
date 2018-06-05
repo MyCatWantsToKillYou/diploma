@@ -42,11 +42,11 @@
          <h3>Количество телефонных линий &nbsp;&nbsp;
          <input type="number" min="0"  name="phoneQuantity" size="3" />
          <h3>Пожарная безопасность(организация)</h3>
-         <p><input type="text" name="fireSec" placeholder= "ООО 'Рога и копыта'"  size="50" />
+         <p><input type="text" name="fireSec" placeholder= "ПАО 'Газпром'"  size="50" />
          <h3>Тревожная кнопка(организация)</h3>
-         <p><input type="text" name="alarm" placeholder= "ООО 'Рога и копыта'"  size="50" />
+         <p><input type="text" name="alarm" placeholder= "ПАО 'Газпром'"  size="50" />
          <h3>Обслуживание комьютеров(организация)</h3>
-         <p><input type="text" name="compService" placeholder= "ООО 'Рога и копыта'"  size="50" />
+         <p><input type="text" name="compService" placeholder= "ПАО 'Газпром'"  size="50" />
          <h3>Официальный сайт и организация ответственная за наполнение</h3>
          <p><input type="url" name="site" placeholder= "https://javascript.ru/forum/jquery/"  size="50" /> &nbsp; 
          	<input type="text" placeholder="ООО 'Рога и копыта'"  name="orgSite" size="50">
@@ -64,7 +64,7 @@
  
  <tr>
     	<td colspan="11"><input type="text" name="roomName1" id="roomName1" placeholder= "Название кабинета"  size="50" />
-        <input type="number" name="level" id="level" placeholder= "Этаж"  size="50" /></td>
+        <input type="number" name="level" min="1" id="level" placeholder= "Этаж"  size="50" /></td>
 </tr>
      <tr>
      	<td colspan="12">
@@ -73,18 +73,16 @@
      </td>
  </tr>
  <tr>
-    <th width="33%" colspan="3">Двери</th>
-    <th width="33%" colspan="3">Окна</th>
-    <th width="33%" colspan="4">Сейф</th>
+    <th width="33%" colspan="2">Двери</th>
+    <th width="33%" colspan="2">Окна</th>
+    <th width="33%" colspan="6">Сейф</th>
 </tr>
-<tr>
-    <td width="11%"><input type="text"  name="doorQuan" id="doorQuan" placeholder="Количество" size="10" /></td>
-    <td width="11%"><input type="text"  name="doorMat" id="doorMat" placeholder="Материал" size="10" /></td>
-    <td width="11%"><input type="text"  name="Lock" id="Lock" placeholder="Замок" size="10" /></td>
-    <td width="11%"><input type="text"  name="winQuan" id="winQuan" placeholder="Количество" size="10" /></td>
-    <td width="11%"><input type="text"  name="winMat" id="winMat" placeholder="Материал" size="10" /></td>
-    <td width="11%"><input type="text"  name="lattice" id="lattice" placeholder="Решётка" size="10" /></td>
-    <td width="11%" colspan="4"><input type="text"  name="safeQuan" id="safeQuan" placeholder="Количество" size="8" /></td>
+<tr>  
+    <td width="11%"><input type="text"  name="doorMat" id="doorMat" placeholder="дерево, металл" size="10" /></td>
+    <td width="11%"><input type="text"  name="Lock" id="Lock" placeholder="механический" size="10" /></td>  
+    <td width="11%"><input type="text"  name="winMat" id="winMat" placeholder="дерево, пластик" size="10" /></td>
+    <td width="11%"><input type="checkbox"  name="lattice" id="lattice"  size="10" />Решётка</td>
+    <td width="11%" colspan="6"><input type="checkbox"  name="safeQuan" id="safeQuan" placeholder="Количество" size="8" /></td>
 </tr>
 <tr>
     <th width="25%" colspan="3">Электропитание</th>
@@ -130,7 +128,7 @@
         <td><input type="text"  name="ispdnArmNumber" id="ispdnArmNumber" placeholder="Номера АРМ" size="20" /></td>
     </tr>
     <tr>
-        <td><input type="text"  name="level" id="level" placeholder="Уровень защищённости" size="20"/></td>
+        <td><input type="text"  name="levelSec" id="levelSec" placeholder="Уровень защищённости" size="20"/></td>
     </tr>
     <tr>
         <td><input type="text"  name="type" id="type" placeholder="Тип угрозы" size="20" /></td>
