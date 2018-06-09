@@ -49,7 +49,7 @@
          <p><input type="text" name="compService" placeholder= "ПАО 'Газпром'"  size="50" />
          <h3>Официальный сайт и организация ответственная за наполнение</h3>
          <p><input type="url" name="site" placeholder= "https://javascript.ru/forum/jquery/"  size="50" /> &nbsp; 
-         	<input type="text" placeholder="ООО 'Рога и копыта'"  name="orgSite" size="50">
+         	<input type="text" placeholder="ПАО 'Газпром'"  name="orgSite" size="50">
     </div>
    </li>
    <li>
@@ -122,7 +122,7 @@
         <td><textarea rows="15" cols="137" name="text" id="text" placeholder="Перечень ПДн в ИСПДн(через точку с запятой)"></textarea></td>
     </tr>
     <tr>
-        <td><input type="text"  name="ispdnArmQuan" id="ispdnArmQuan" placeholder="Количество АРМ" size="20"/></td>
+        <td><input type="number" min="1"  name="ispdnArmQuan" id="ispdnArmQuan" placeholder="Количество АРМ" size="20"/></td>
     </tr>
     <tr>
         <td><input type="text"  name="ispdnArmNumber" id="ispdnArmNumber" placeholder="Номера АРМ" size="20" /></td>

@@ -99,6 +99,40 @@ $phpdocx->assignBlock("general", array(array(
 		$k++;
 		
 	}
+	$m=0;
+	$n=0;
+	while(array_key_exists("ispdnName".$j[$m], $_POST)){
+		$arms[]="ispdnArmNumber".$j[$m];
+		$armNames[]=explode(" ", $_POST[$arms[$m]]);
+		$ispdns[]="ispdnName".$j[$m];
+		$lists[]="text".$j[$m];
+		$armQuans[]="ispdnArmQuan".$j[$m];
+		$temp = [
+			"{ispdnName}"=>$_POST[$ispdns[$m]],
+			"{ispdnList}"=>$_POST[$lists[$m]],
+			"{armQuan}"=>$_POST[$armQuans[$m]],
+			"{orgAddr}"=>$_POST["orgAddr"],
+		
+		];
+
+		$phpdocx->assignBlock("ispdns",array($temp));
+		$phpdocx->assignNestedBlock("ispdn", array($temp),array("ispdns"=>1));
+		$phpdocx->assignBlock("ispdnArms",array($temp));
+		$phpdocx->assignNestedBlock("ispdnArm", array($temp),array("ispdnArms"=>1));
+		while($n<count($armNames[$m])){
+			$temp2 = [
+				
+				"{armName}"=>$armNames[$m][$n],
+			];
+			$n++;
+		}
+		
+			$phpdocx->assignNestedBlock("arms", array($temp2), array("ispdnArms"=>1));
+			//$phpdocx->assignNestedBlock("arms", array($temp2), array("ispdnArms"=>1));
+
+		echo $armNames[$m][0];
+		$m++;
+	}
 
 $phpdocx->save("docs/".$_FILES['userfile']['name'][$i]);
 }
@@ -151,6 +185,12 @@ return implode(" ",$substr)." ".$words[0];
 function getLines($number){
 
 return $number."(".CardinalNumeralGenerator::getCase($number, 'именительный', Gender::FEMALE).")";
+}
+
+function getArms($ispdnName){
+	explode(" ", $ispdnName);
+
+	return explode(" ", $ispdnName);
 }
 ?>
 
