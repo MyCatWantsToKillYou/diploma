@@ -107,11 +107,15 @@ $phpdocx->assignBlock("general", array(array(
 		$ispdns[]="ispdnName".$j[$m];
 		$lists[]="text".$j[$m];
 		$armQuans[]="ispdnArmQuan".$j[$m];
+		$levelSec[]="levelSec".$j[$m];
+		$types[]="type".$j[$m];
 		$temp = [
 			"{ispdnName}"=>$_POST[$ispdns[$m]],
 			"{ispdnList}"=>$_POST[$lists[$m]],
 			"{armQuan}"=>$_POST[$armQuans[$m]],
 			"{orgAddr}"=>$_POST["orgAddr"],
+			"{levelSec}"=>$_POST[$levelSec[$m]]."(".OrdinalNumeralGenerator::getCase($_POST[$levelSec[$m]],'именительный', Gender::MALE).")",
+			"{type}"=>OrdinalNumeralGenerator::getCase($_POST[$types[$m]],'родительный', Gender::MALE)
 		
 		];
 
@@ -119,26 +123,53 @@ $phpdocx->assignBlock("general", array(array(
 		$phpdocx->assignNestedBlock("ispdn", array($temp),array("ispdns"=>1));
 		$phpdocx->assignBlock("ispdnArms",array($temp));
 		$phpdocx->assignNestedBlock("ispdnArm", array($temp),array("ispdnArms"=>1));
-		while($n<count($armNames[$m])){
-			$temp2 = [
-				
-				"{armName}"=>$armNames[$m][$n],
-			];
-			$n++;
-		}
-		
-			$phpdocx->assignNestedBlock("arms", array($temp2), array("ispdnArms"=>1));
-			//$phpdocx->assignNestedBlock("arms", array($temp2), array("ispdnArms"=>1));
-
-		echo $armNames[$m][0];
+			
 		$m++;
 	}
+for($c=0;$c<count($arms);$c++){
+	for($d=0;$d<count($armNames[$c]);$d++){
+		$temp2 = [			
+				"{armName}"=>$armNames[$c][$d],
+			];
+			$phpdocx->assignNestedBlock("arms", array($temp2), array("ispdnArm"=>$c+1));
+	}
+}
+/*
+	$z=0;
+	while(array_key_exists("armName1".$j[$z], $_POST)){
+		$syspos[]="sysPO1".$j[$z];
+	}
 
+
+while(array_key_exists("armName1".$j[$z], $_POST)){
+	$namesArm[]="armName1".$j[$z];
+	$syspos[]="sysPO1".$j[$z];
+	for($c=0;$c<count($arms);$c++){
+		for($d=0;$d<count($armNames[$c]);$d++){
+			if($_POST[$namesArm[$z]]==$armNames[$c][$d]){
+				$temp3 = [
+					"{sys}"=>$_POST[$syspos[$d]],
+					"{app}"=>$_POST[$syspos[$d]]
+
+				];
+				$phpdocx->assignNestedBlock("syspo", array($temp2), array("ispdnArm"=>$c+1));
+
+			}		
+		}
+	}
+}
+
+
+$z++;
+}
+
+
+foreach($_POST as $key => $val){
+echo '[ '.$key.' ] => '.$val."<br />";
+}
+*/
 $phpdocx->save("docs/".$_FILES['userfile']['name'][$i]);
 }
-//foreach($_POST as $key => $val){
-//echo '[ '.$key.' ] => '.$val."<br />";
-//}
 
 function getShortName($fullName){
 	$nameabbr=stristr($fullName,'«',true);
@@ -192,6 +223,9 @@ function getArms($ispdnName){
 
 	return explode(" ", $ispdnName);
 }
+//$redirect = isset($_SERVER['HTTP_REFERER'])? $_SERVER['HTTP_REFERER']:'redirect-form.html';
+//header("Location: $redirect");
+//exit();
 ?>
 
 

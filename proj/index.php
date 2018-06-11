@@ -108,16 +108,13 @@
         	<input type="button" onclick="cloneTable('container1','ispdn')" id="create1"  value="+"/>
         </label>
       <div id="container1">
-        <h3>Количество ИСПДн</h3>
-        <p><input type="number" min="1" name="ispdnQuan" id="ispdnQuan" size="3" />
+        
      
         <table border="1" width="150px" align="center" id="ispdn">
     <tr>
         <td><input type="text"  name="ispdnName" id="ispdnName" placeholder="Название ИСПДн" size="30" /></td>
     </tr>
-    <tr>
-        <td><input type="text"  name="ispdnNumber" id="ispdnNumber" placeholder="Порядковый номер" size="30" /></td>
-    </tr>
+
     <tr>
         <td><textarea rows="15" cols="137" name="text" id="text" placeholder="Перечень ПДн в ИСПДн(через точку с запятой)"></textarea></td>
     </tr>
@@ -128,10 +125,10 @@
         <td><input type="text"  name="ispdnArmNumber" id="ispdnArmNumber" placeholder="Номера АРМ" size="20" /></td>
     </tr>
     <tr>
-        <td><input type="text"  name="levelSec" id="levelSec" placeholder="Уровень защищённости" size="20"/></td>
+        <td><input type="number" max="3" name="levelSec" id="levelSec" placeholder="Уровень защищённости" size="20"/></td>
     </tr>
     <tr>
-        <td><input type="text"  name="type" id="type" placeholder="Тип угрозы" size="20" /></td>
+        <td><input type="number"  name="type" id="type" placeholder="Тип угрозы" size="20" /></td>
     </tr>
 </table>
       </div>
@@ -141,31 +138,59 @@
         <label for="tabs-0-3">АРМ &nbsp;
        	<input type="button" onclick="cloneTable('container2','armTable')" id="create3"  value="+"/></label>
      <div id="container2">
-       <h3>Количество АРМ(всего)</h3>
-       <p><input type="number" min="1"  name="armQuantity" id="armQuantity" size="3" /></p>
+       
        <table border="1" width="150px" align="center" id="armTable">
        	<tbody id="arm">
     <tr>
-        <td><input type="text"  name="armNumber" id="armNumber" placeholder="№ АРМ" size="20"/></td>
+        <td><input type="text"  name="armNumber1" id="armNumber1" placeholder="№ АРМ" size="20"/></td>
     </tr>
     <tr>
     	<th>
-    		Системное ПО &nbsp;<input type="button" id="btnAddSys" onclick='createRowSys("armTable")' value="+" />
+    		Системное ПО &nbsp;<input type="button" id="btnAddSys" onclick='createRowSys("armTable")' value="+" disabled />
     	</th>
 
     </tr>
     <tr>
-        <td><input type="text"  name="sysPO" id="sysPO" placeholder="Системное ПО" size="50"/></td> 
-
+        <td><input type="text"  name="sysPO1" id="sysPO1" placeholder="Системное ПО" size="50"/></td>
+    </tr> 
+    <tr>
+        <td><input type="text"  name="sysPO2" id="sysPO2" placeholder="Системное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="sysPO3" id="sysPO3" placeholder="Системное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="sysPO4" id="sysPO4" placeholder="Системное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="sysPO5" id="sysPO5" placeholder="Системное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="sysPO6" id="sysPO6" placeholder="Системное ПО" size="50"/></td>
     </tr> 
     
     <tr>
     	<th>
-    		Прикладное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowApp("armTable")' value="+" />
+    		Прикладное ПО &nbsp;<input type="button" id="btnAddAppl" onclick='createRowApp("armTable")' value="+" disabled />
     	</th>
     </tr>
     <tr>
-        <td><input type="text"  name="appliedPO" id="appliedPO" placeholder="Прикладное ПО" size="50"/></td>
+        <td><input type="text"  name="appliedPO1" id="appliedPO1" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO2" id="appliedPO2" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO3" id="appliedPO3" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO4" id="appliedPO4" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO5" id="appliedPO5" placeholder="Прикладное ПО" size="50"/></td>
+    </tr>
+    <tr>
+        <td><input type="text"  name="appliedPO6" id="appliedPO6" placeholder="Прикладное ПО" size="50"/></td>
     </tr>
 </tbody>
 </table>
@@ -184,13 +209,29 @@
         });
     });
 </script>
+<script>
+function AjaxFormRequest(result_id,formMain,url) {
+   jQuery.ajax({
+      url:     url,
+      type:     "POST",
+      dataType: "html",
+      data: jQuery("#"+formMain).serialize(),
+      success: function(response) {
+         document.getElementById(result_id).innerHTML = response;
+      },
+      error: function(response) {
+         document.getElementById(result_id).innerHTML = "Возникла ошибка при отправке формы. Попробуйте еще раз";
+      }
+   });
+}
+</script>
 
 
    </li>
   </ul>
 </div>
 <br />
-  <input type="submit" value="Сгенерировать" />
+  <input type="submit" value="Сгенерировать"  />
 </form>
 
 
